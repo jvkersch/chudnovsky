@@ -20,18 +20,18 @@ use rug::{
 
 #[pyfunction]
 fn compute_pi(prec: u32, iter: i32) -> PyResult<String> {
-    let pi = _chudnowsky(prec, iter);
+    let pi = _chudnovsky(prec, iter);
     Ok(pi)
 }
 
 #[pymodule]
-fn chudnowsky(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
+fn chudnovsky(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(compute_pi))?;
 
     Ok(())
 }
 
-pub fn _chudnowsky(prec: u32, iter: i32) -> String {
+pub fn _chudnovsky(prec: u32, iter: i32) -> String {
     let a = Float::with_val(prec, 10005.0).sqrt();
     let b = Float::with_val(prec, 426880.0);
 
