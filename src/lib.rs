@@ -31,7 +31,7 @@ fn chudnowsky(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     Ok(())
 }
 
-fn _chudnowsky(prec: u32, iter: i32) -> String {
+pub fn _chudnowsky(prec: u32, iter: i32) -> String {
     let a = Float::with_val(prec, 10005.0).sqrt();
     let b = Float::with_val(prec, 426880.0);
 
